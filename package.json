@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Module 10 Object-Oriented Programming: Team Profile Generator",
   "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +21,7 @@
     "url": "https://github.com/rrkincaid/generator-team-profile/issues"
   },
   "homepage": "https://github.com/rrkincaid/generator-team-profile#readme",
-  "directories": {
-    "test": "test"
+  "dependencies": {
+    "inquirer": "^8.2.4"
   }
 }
