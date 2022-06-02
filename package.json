@@ -1,0 +1,23 @@
+{
+  "name": "generator-team-profile",
+  "version": "1.0.0",
+  "description": "Module 10 Object-Oriented Programming: Team Profile Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rrkincaid/generator-team-profile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rrkincaid/generator-team-profile/issues"
+  },
+  "homepage": "https://github.com/rrkincaid/generator-team-profile#readme",
+  "directories": {
+    "test": "test"
+  }
+}
