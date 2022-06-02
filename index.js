@@ -1,3 +1,8 @@
+// const generateHTML = require("./src/generateHTML");
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
+
 const inquirer = require("inquirer");
 const fs = require("fs");
 
@@ -135,44 +140,3 @@ function menu() {
       }
     });
 }
-
-// inquirer
-//   .prompt([
-//     {
-//       type: "input",
-//       message: "What is your name?",
-//       name: "name",
-//     },
-//     {
-//       type: "input",
-//       message: "What is your ID number?",
-//       name: "id",
-//     },
-//     {
-//       type: "input",
-//       message: "What is your email?",
-//       name: "email",
-//     },
-//     {
-//       type: "list",
-//       message: "What is your title",
-//       choices: ["Intern", "Employee", "Engineer", "Manager"],
-//       name: "employeetype",
-//     },
-//     {
-//       type: "input",
-//       message: "What is your Github repository info",
-//       name: "github",
-//     },
-//     {
-//       type: "input",
-//       message: "Where do you go to school?",
-//       name: "school",
-//     },
-//   ])
-// .then((answers) => {
-//   // const htmlPageContent = generateHTML(answers);
-//   // fs.writeFile('index.html', htmlPageContent, (err) =>
-//   //     err ? console.log(err) : console.log('Successfully created index.html!')
-//   // );
-// });
