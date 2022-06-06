@@ -2,15 +2,14 @@
 
 Module 10 Object-Oriented Programming: Team Profile Generator
 
-# team-profile-generator
-
-Module 10 Object-Oriented Programming: Team Profile Generator
-
 1. [Description](#description)
 2. [User Story](#user-story)
 3. [Acceptance Criteria](#acceptance-criteria)
-4. [Github Repository](#github-repository)
-5. [Gitignore](#gitignore-details)
+4. [Mock-Up](#mock-up)
+5. [Getting Started](#getting-started)
+6. [Github Repository](#github-repository)
+7. [Gitignore](#gitignore-details)
+8. [Requirements & Criteria](#grading-requirements)
 
 ## Description
 

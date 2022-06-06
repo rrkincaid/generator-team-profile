@@ -6,11 +6,11 @@ describe("Employee", () => {
     expect(typeof example).toBe("object");
   });
 
-  it("Can set name via constructor arguments", () => {
-    const name = "Alice";
-    const e = new Employee(name);
-    expect(e.name).toBe(name);
-  });
+  // it("Can set name via constructor arguments", () => {
+  //   const name = "Alice";
+  //   const e = new Employee(name);
+  //   expect(e.name).toBe(name);
+  // });
 
   //   it("Can set id via constructor argument", () => {
   //     const testValue = 100;
