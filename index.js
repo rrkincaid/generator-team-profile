@@ -3,51 +3,76 @@ const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 
+const employees = [];
+
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const generateHTML = ({ name, id, email, employeetype, github, school }) =>
-  `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <title> Team Profile </title>
-</head>
-<body>
-    <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-    <h1 class="display-4">Hi! My name is ${name}</h1>
-    <h2 class="display-4">I am a ${employeetype} at the company</h2>
-    <h3 class="lead">I went to the following school: ${school}.</h3>
-    <h5 class="lead">My ID number is: ${id}.</h5>
-    <h3><span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-        <li class="list-group-item">My GitHub username is ${github}</li>
-        <li class="list-group-item">email: ${email}</li>
-    </ul>
-    </div>
-</div>
-</body>
-</html>`;
+const generateHTML = (employees) => {
+  console.log(employees);
+  console.log(employees[0].getOfficeNumber());
+  let employeeEachHTML = "";
+  for (i = 0; i < employees.length; i++) {
+    let special = "1";
+    if (employees[i].getRole() === "Manager") {
+      special = employees[i].getOfficeNumber();
+    } else if (employees[i].getRole() === "Intern") {
+      special = employees[i].getSchool();
+    } else if (employees[i].getRole() === "Engineer") {
+      special = employees[i].getGithub();
+    }
+    employeeEachHTML += `
+    
+  <div class="card border-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header bg-transparent border-primary">
+    ${employees[i].getRole()}</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title text-primary">${employees[i].getName()}</h5>
+    <p class="card-text text-primary">Employee ID: ${employees[i].getId()}</p>
+    <p class="card-text text-primary">${employees[i].getEmail()}</p>
+    <p class="card-text text-primary">${special}</p>
+  </div>
+  <div class="card-footer bg-transparent border-primary"></div>
+</div>`;
+  }
+  return `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <title>Team Profile</title>
+  </head>
+  <body>
+      <nav class="navbar navbar-dark bg-dark mb-5">
+          <span class="navbar-brand mb-0 h1 w-100 text-center">Team Profile</span>
+      </nav>
+      <div class="container">
+          <div class="row">
+          ${employeeEachHTML}
+      </div>
+      </div>
+  </body>
+</html> `;
+};
 
 inquirer
   .prompt([
     {
       type: "input",
       message: "What is your name?",
-      name: "manager-name",
+      name: "managername",
     },
     {
       type: "input",
       message: "What is your employee ID?",
-      name: "manager-id",
+      name: "managerid",
     },
     {
       type: "input",
       message: "What is your email address?",
-      name: "manager-email",
+      name: "manageremail",
     },
     {
       type: "input",
@@ -57,6 +82,13 @@ inquirer
   ])
   .then((answers) => {
     //build manager here with class
+    const newManager = new Manager(
+      answers.managername,
+      answers.managerid,
+      answers.manageremail,
+      answers.officenumber
+    );
+    employees.push(newManager);
     menu();
   });
 
@@ -77,26 +109,33 @@ function menu() {
             {
               type: "input",
               message: "What is your name?",
-              name: "intern-name",
+              name: "internname",
             },
             {
               type: "input",
               message: "What is your employee ID number?",
-              name: "intern-id",
+              name: "internid",
             },
             {
               type: "input",
               message: "What is your email address?",
-              name: "intern-email",
+              name: "internemail",
             },
             {
               type: "input",
               message: "What school did you attend?",
-              name: "intern-school",
+              name: "internschool",
             },
           ])
           .then((answers) => {
             //create intern class
+            const newIntern = new Intern(
+              answers.internname,
+              answers.internid,
+              answers.internemail,
+              answers.internschool
+            );
+            employees.push(newIntern);
             menu();
           });
       }
@@ -106,31 +145,38 @@ function menu() {
             {
               type: "input",
               message: "What is your name?",
-              name: "engineer-name",
+              name: "engineername",
             },
             {
               type: "input",
               message: "What is your employee ID number?",
-              name: "engineer-id",
+              name: "engineerid",
             },
             {
               type: "input",
               message: "What is your email address?",
-              name: "engineer-email",
+              name: "engineeremail",
             },
             {
               type: "input",
               message: "What is your Github username?",
-              name: "engineer-github",
+              name: "engineergithub",
             },
           ])
           .then((answers) => {
             //create engineer class
+            const newEngineer = new Engineer(
+              answers.engineername,
+              answers.engineerid,
+              answers.engineeremail,
+              answers.engineergithub
+            );
+            employees.push(newEngineer);
             menu();
           });
       }
       if (answers.addperson === "Complete Team") {
-        const htmlPageContent = generateHTML(answers);
+        const htmlPageContent = generateHTML(employees);
 
         fs.writeFile("index.html", htmlPageContent, (err) =>
           err
