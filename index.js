@@ -1,4 +1,3 @@
-// const generateHTML = require("./src/generateHTML");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
@@ -13,7 +12,7 @@ const generateHTML = (employees) => {
   console.log(employees[0].getOfficeNumber());
   let employeeEachHTML = "";
   for (i = 0; i < employees.length; i++) {
-    let special = "1";
+    let special = "";
     if (employees[i].getRole() === "Manager") {
       special = employees[i].getOfficeNumber();
     } else if (employees[i].getRole() === "Intern") {
@@ -23,16 +22,16 @@ const generateHTML = (employees) => {
     }
     employeeEachHTML += `
     
-  <div class="card border-primary mb-3" style="max-width: 18rem;">
+  <div class="card border-primary mb-3 p-3" style="max-width: 18rem;">
     <div class="card-header bg-transparent border-primary">
     ${employees[i].getRole()}</div>
-  <div class="card-body text-primary">
-    <h5 class="card-title text-primary">${employees[i].getName()}</h5>
-    <p class="card-text text-primary">Employee ID: ${employees[i].getId()}</p>
-    <p class="card-text text-primary">${employees[i].getEmail()}</p>
-    <p class="card-text text-primary">${special}</p>
-  </div>
-  <div class="card-footer bg-transparent border-primary"></div>
+      <div class="card-body text-primary">
+        <h5 class="card-title text-primary">${employees[i].getName()}</h5>
+          <p class="card-text text-primary">
+          Employee ID: ${employees[i].getId()}</p>
+          <p class="card-text text-primary">${employees[i].getEmail()}</p>
+          <p class="card-text text-primary">${special}</p>
+      </div>
 </div>`;
   }
   return `<!DOCTYPE html>

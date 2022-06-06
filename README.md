@@ -6,7 +6,13 @@ Module 10 Object-Oriented Programming: Team Profile Generator
 
 Module 10 Object-Oriented Programming: Team Profile Generator
 
-## Your Task
+1. [Description](#description)
+2. [User Story](#user-story)
+3. [Acceptance Criteria](#acceptance-criteria)
+4. [Github Repository](#github-repository)
+5. [Gitignore](#gitignore-details)
+
+## Description
 
 Your task is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
 
@@ -125,9 +131,15 @@ In addition to `Employee`'s properties and methods, `Intern` will also have the 
 
 Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
 
+## Github Repository
+
 https://rrkincaid.github.io/generator-team-profile/
 
 https://github.com/rrkincaid/generator-team-profile
+
+## Gitignore Details
+
+node module and ds store
 
 ## Grading Requirements
 
@@ -172,17 +184,3 @@ This Challenge is graded based on the following criteria:
 - Repository contains multiple descriptive commit messages.
 
 - Repository contains a high-quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit the following for review:
-
-- A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-- A sample HTML file generated using your application.
-
-- The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
