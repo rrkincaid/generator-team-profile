@@ -11,8 +11,8 @@ const generateHTML = (employees) => {
   console.log(employees);
   console.log(employees[0].getOfficeNumber());
   let employeeEachHTML = "";
+  let special = "";
   for (i = 0; i < employees.length; i++) {
-    let special = "";
     if (employees[i].getRole() === "Manager") {
       special = employees[i].getOfficeNumber();
     } else if (employees[i].getRole() === "Intern") {
@@ -22,7 +22,7 @@ const generateHTML = (employees) => {
     }
     employeeEachHTML += `
     
-  <div class="card border-primary mb-3 p-3" style="max-width: 18rem;">
+  <div class="card border-primary mb-3 border-rounded" style="max-width: 18rem;">
     <div class="card-header bg-transparent border-primary">
     ${employees[i].getRole()}</div>
       <div class="card-body text-primary">
@@ -45,7 +45,7 @@ const generateHTML = (employees) => {
   </head>
   <body>
       <nav class="navbar navbar-dark bg-dark mb-5">
-          <span class="navbar-brand mb-0 h1 w-100 text-center">Team Profile</span>
+          <span class="navbar-brand mb-0 h2 w-100 text-center">Team Profile</span>
       </nav>
       <div class="container">
           <div class="row">
